@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title>Featured</title>
+        <div class="hbg">   
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+
+    <!-- LOADER -->
+    <div id="loading">
+
+    </div>
+    <!-- LOADER -->
+        <div class="nav">
+            <a class="act" href="index.html">Home</a>
+            <a href="calender.html">Calendar</a>
+            <a href="tour.html">Tour</a>
+            <a href="featured.html">Featured</a>
+            <a href="topRated.html">Top Rated</a>
+            <a href="newRel.html">New Releases</a>
+            <a href="trending.html">Trending</a>
+        </div>
+
+        <div class="songBox" id="s1">
+            
+        </div>
+
+        <div class="songBox" id="s2">
+            
+        </div>
+
+        <div class="songBox" id="s3">
+            
+        </div>
+
+        <div class="songBox" id="s4">
+            
+        </div>
+
+        <div class="songBox" id="s5">
+            
+        </div>
+        <div class="bg1"></div>
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+                var counter = 0;
+                var c = 0;
+                var i = setInterval(function(){
+                    $(".loading-page .counter h1").html(c);
+                    $(".loading-page").css("width", c + "%");
+
+                    counter++;
+                    c++;
+                    if(counter == 101){
+                        clearInterval(i);
+                        $(".loading-page").hide();
+                        $("body").css('background', 'white');
+                        $("body").css('overflow', 'scroll');
+                    }
+                },35);
+                //$(".loading-page").hide();
+            });
+
+            //song 1
+            var settings1 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/471080782",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings1).done(function (response) {
+                console.log(response);
+                document.getElementById('s1').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>" + response.duration + " seconds</h4> \n"+
+                '<h4>Hard Rock</h4>\n'+
+                '<iframe width="300" height="300" src="https://www.youtube.com/embed/y4uAcrWVCXY"></iframe>';
+            });
+
+            //song 2
+            var settings2 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/810558302",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings2).done(function (response) {
+                console.log(response);
+                document.getElementById('s2').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>" + response.duration + " seconds</h4> \n"+
+                '<h4>Industrial Metal</h4>\n'+
+                '<iframe width="300" height="300" src="https://www.youtube.com/embed/rFnU5MoQJWU"></iframe>';
+            });
+
+            //song 3
+            var settings3 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/867471112",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings3).done(function (response) {
+                console.log(response);
+                document.getElementById('s3').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>" + response.duration + " seconds</h4> \n"+
+                '<h4>Electro House</h4>\n'+
+                '<iframe width="300" height="300" src="https://www.youtube.com/embed/4xH0l06ZGmo"></iframe>';
+            });
+
+            //song4
+            var settings4 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/872280672",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings4).done(function (response) {
+                console.log(response);
+                document.getElementById('s4').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>" + response.duration + " seconds</h4> \n"+
+                '<h4>Indie</h4>\n'+
+                '<iframe width="300" height="300" src="https://www.youtube.com/embed/ttWBYzapgSY"></iframe>';
+            });
+
+            //song 5
+            var settings5 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/854914342",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings5).done(function (response) {
+                console.log(response);
+                document.getElementById('s5').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>" + response.duration + " seconds</h4> \n"+
+                '<h4>Rap</h4>\n'+
+                '<iframe width="300" height="300" src="https://www.youtube.com/embed/ftujE679Wx0"></iframe>';
+            });
+
+            function hide(){
+                //document.getElementById("loading").style.background = "none";
+                document.getElementById("loading").style.visibility = "hidden";
+            }
+
+            function hideLoader(){
+                $('#loading').hide();
+            }
+
+            //(document).ready(hideLoader);
+            $(document).ready(function(){
+                setTimeout(function(){
+                    $('#loading').hide();
+                },3*1000);
+            });
+            //setTimeout(hideLoader,20*1000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title>Trending</title>
+        <div class="hbg">   
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+
+    <!-- LOADER -->
+    <div id="loading">
+
+    </div>
+    <!-- LOADER -->
+
+        <div class="nav">
+            <a class="act" href="/u19022949/index.html">Home</a>
+            <button type="submit" onclick="funcSearch()">Search</button>
+            <input type="text" id="sInput" placeholder="Search" onkeyup="search_song()">
+            <a href="calender.html">Calendar</a>
+            <a href="tour.html">Tour</a>
+            <a href="featured.html">Featured</a>
+            <a href="topRated.html">Top Rated</a>
+            <a href="newRel.html">New Releases</a>
+            <a href="trending.html">Trending</a>
+        </div>
+
+        <div class="filter">
+            <button class="dropBtn">Filter</button>
+            <div id="dropFlt" class="filter-content">
+                <button class="btn" onclick="popup()">Genre</button>
+                <button class="btn" onclick="year18()">Year: 2018</button>
+                <button class="btn" onclick="year19()">Year: 2019</button>
+                <button class="btn" onclick="year20()">Year: 2020</button>
+                <button class="btn" onclick="pReset()">Reset Filters</button>
+            </div>
+        </div>
+        
+        <div class="songBox" id="s1">
+            
+        </div>
+
+        <div class="songBox" id="s2">
+            
+        </div>
+
+        <div class="songBox" id="s3">
+           
+        </div>
+
+        <div class="songBox" id="s4">
+            
+        </div>
+
+        <div class="songBox" id="s5">
+            
+        </div>
+        <div class="bgTr"></div>
+        <script src="script.js"></script>
+        <script>
+
+            $(document).ready(function(){
+                var counter = 0;
+                var c = 0;
+                var i = setInterval(function(){
+                    $(".loading-page .counter h1").html(c);
+                    $(".loading-page").css("width", c + "%");
+
+                    counter++;
+                    c++;
+                    if(counter == 101){
+                        clearInterval(i);
+                        $(".loading-page").hide();
+                        $("body").css('background', 'white');
+                        $("body").css('overflow', 'scroll');
+                    }
+                },35);
+                //$(".loading-page").hide();
+            });
+
+            //song1
+            var settings1 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/803010392",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings1).done(function (response) {
+                console.log(response);
+                document.getElementById('s1').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4 id='sT1'>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>Ranking: " + response.rank + "</h4> \n"+
+                '<h4>Alternative/Indie</h4>\n'+
+                '<h4>Interscope Records</h4>\n'+
+                '<h4>'+ response.album.title +'</h4>';
+            });
+
+            //song 2
+            var settings2 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/854914322",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings2).done(function (response) {
+                console.log(response);
+                document.getElementById('s2').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4 id='sT2'>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>Ranking:" + response.rank + "</h4> \n"+
+                '<h4>Rap</h4>\n'+
+                '<h4>Interscope Records</h4>\n'+
+                '<h4>'+ response.album.title +'</h4>\n';
+            });
+
+            //song 3
+            var settings3 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/823567772",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings3).done(function (response) {
+                console.log(response);
+                document.getElementById('s3').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4 id='sT3'>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>Ranking: " + response.rank + "</h4> \n"+
+                '<h4>Pop</h4>\n'+
+                '<h4>Epic Records</h4>\n'+
+                '<h4>'+ response.album.title +'</h4>\n';
+            });
+
+            //song4
+            var settings4 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/812160472",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings4).done(function (response) {
+                console.log(response);
+                document.getElementById('s4').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4 id='sT4'>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>Ranking: " + response.rank + "</h4> \n"+
+                '<h4>Alternative/Indie</h4>\n'+
+                '<h4>Sun Records</h4>\n'+
+                '<h4>'+ response.album.title +'</h4>\n';
+            });
+
+            //song 5
+            var settings5 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://deezerdevs-deezer.p.rapidapi.com/track/855956742",
+                "contentType": "application/json",
+                "dataType": 'json',
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "0fcf9b0285mshc17dcc635c0a0dap171617jsn2fbddb234ff6"
+                }
+            }
+
+            $.ajax(settings5).done(function (response) {
+                console.log(response);
+                document.getElementById('s5').innerHTML = "<img src='" + response.album.cover_big +"' width = '300' height='300'> \n"+
+                "<h4 id='sT5'>" + response.title + "</h4> \n"+
+                "<h4>" + response.artist.name + "</h4> \n"+
+                "<h4>" + response.album.release_date + "</h4> \n"+
+                "<h4>Ranking: " + response.rank + "</h4> \n"+
+                '<h4>Pop</h4>\n'+
+                '<h4>Big Beat Records</h4>\n'+
+                '<h4>'+ response.album.title +'</h4>\n';
+            });
+
+            //Search Bar
+            function search_song(){
+                let input = document.getElementById('sInput').value.toLowerCase();
+                //input = input.toLowerCase();
+
+               if(document.getElementById("sT1").innerHTML.toLowerCase().includes(input)){
+                    document.getElementById("s1").style.visibility = "visible";
+
+               }else{
+                   document.getElementById("s1").style.visibility = "hidden";
+               }
+
+               if(document.getElementById("sT2").innerHTML.toLowerCase().includes(input)){
+                   document.getElementById("s2").style.visibility = "visible";
+               }else{
+                   document.getElementById("s2").style.visibility = "hidden";
+               }
+
+               if(document.getElementById("sT3").innerHTML.toLowerCase().includes(input)){
+                   document.getElementById("s3").style.visibility = "visible";
+               }else{
+                   document.getElementById("s3").style.visibility = "hidden";
+               }
+
+               if(document.getElementById("sT4").innerHTML.toLowerCase().includes(input)){
+                   document.getElementById("s4").style.visibility = "visible";
+               }else{
+                   document.getElementById("s4").style.visibility = "hidden";
+               }
+
+               if(document.getElementById("sT5").innerHTML.toLowerCase().includes(input)){
+                   document.getElementById("s5").style.visibility = "visible";
+               }else{
+                   document.getElementById("s5").style.visibility = "hidden";
+               }
+            }
+
+            function popup() {
+                var txt;
+                var ipt = prompt("Please enter the desired genre", "Pop");
+
+                if(ipt == null || ipt == ""){
+                    document.getElementById("s1").style.visibility = "visible";
+                    document.getElementById("s2").style.visibility = "visible";
+                    document.getElementById("s3").style.visibility = "visible";
+                    document.getElementById("s4").style.visibility = "visible";
+                    document.getElementById("s5").style.visibility = "visible";
+                }else if(ipt.toLowerCase().includes('rap')){
+                    document.getElementById("s1").style.visibility = "hidden";
+                    document.getElementById("s2").style.visibility = "visible";
+                    document.getElementById("s3").style.visibility = "hidden";
+                    document.getElementById("s4").style.visibility = "hidden";
+                    document.getElementById("s5").style.visibility = "hidden";
+                }else if(ipt.toLowerCase().includes('alternative')){
+                    document.getElementById("s1").style.visibility = "visible";
+                    document.getElementById("s2").style.visibility = "hidden";
+                    document.getElementById("s3").style.visibility = "hidden";
+                    document.getElementById("s4").style.visibility = "visible";
+                    document.getElementById("s5").style.visibility = "hidden";
+                }else if(ipt.toLowerCase().includes('indie')){
+                    document.getElementById("s1").style.visibility = "visible";
+                    document.getElementById("s2").style.visibility = "hidden";
+                    document.getElementById("s3").style.visibility = "hidden";
+                    document.getElementById("s4").style.visibility = "visible";
+                    document.getElementById("s5").style.visibility = "hidden";
+                }else if(ipt.toLowerCase().includes('pop')){
+                    document.getElementById("s1").style.visibility = "hidden";
+                    document.getElementById("s2").style.visibility = "hidden";
+                    document.getElementById("s3").style.visibility = "visible";
+                    document.getElementById("s4").style.visibility = "hidden";
+                    document.getElementById("s5").style.visibility = "visible";
+                }else{
+                    document.getElementById("s1").style.visibility = "hidden";
+                    document.getElementById("s2").style.visibility = "hidden";
+                    document.getElementById("s3").style.visibility = "hidden";
+                    document.getElementById("s4").style.visibility = "hidden";
+                    document.getElementById("s5").style.visibility = "hidden";
+                }
+            }
+
+            function year18(){
+                document.getElementById("s1").style.visibility = "hidden";
+                document.getElementById("s2").style.visibility = "hidden";
+                document.getElementById("s3").style.visibility = "hidden";
+                document.getElementById("s4").style.visibility = "hidden";
+                document.getElementById("s5").style.visibility = "hidden";
+            }
+
+            function year19(){
+                document.getElementById("s1").style.visibility = "visible";
+                document.getElementById("s2").style.visibility = "hidden";
+                document.getElementById("s3").style.visibility = "visible";
+                document.getElementById("s4").style.visibility = "visible";
+                document.getElementById("s5").style.visibility = "hidden";
+            }
+
+            function year20(){
+                document.getElementById("s1").style.visibility = "hidden";
+                document.getElementById("s2").style.visibility = "visible";
+                document.getElementById("s3").style.visibility = "hidden";
+                document.getElementById("s4").style.visibility = "hidden";
+                document.getElementById("s5").style.visibility = "visible";
+            }
+
+            function pReset() {
+                document.getElementById("s1").style.visibility = "visible";
+                document.getElementById("s2").style.visibility = "visible";
+                document.getElementById("s3").style.visibility = "visible";
+                document.getElementById("s4").style.visibility = "visible";
+                document.getElementById("s5").style.visibility = "visible";
+            }
+
+            function hide(){
+                //document.getElementById("loading").style.background = "none";
+                document.getElementById("loading").style.visibility = "hidden";
+            }
+
+            function hideLoader(){
+                $('#loading').hide();
+            }
+
+            //(document).ready(hideLoader);
+            $(document).ready(function(){
+                setTimeout(function(){
+                    $('#loading').hide();
+                },3*1000);
+            });
+        </script>
+    </body>
+</html>

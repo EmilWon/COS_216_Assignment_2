@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <div class="hbg">   
+        </div>
+        <title>Calendar</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="nav">
+            <a class="act" href="index.html">Home</a>
+            <a href="calender.html">Calendar</a>
+            <a href="tour.html">Tour</a>
+            <a href="featured.html">Featured</a>
+            <a href="topRated.html">Top Rated</a>
+            <a href="newRel.html">New Releases</a>
+            <a href="trending.html">Trending</a>
+        </div>
+        
+        <div class="divcalendar">
+
+            <div id="calendaroverallcontrols">
+              <!-- <div id="year"></div> -->
+            
+              <div id="calendarmonthcontrols">
+                <a id="btnPrevYr" href="#" title="Previous Year"><span><<</span></a>
+            
+                <a id="btnPrev" href="#" title="Previous Month"><span><</span></a>
+            
+                <!-- <input type="button" src="images/btnprevmonth.png" alt="Submit" id="btnPrev"/>-->
+            
+                <!-- <div id="month"></div>-->
+            
+                <div id="monthandyear"></div>
+            
+                <!--<input type="button" src="images/btnnextmonth.png" alt="Submit" id="btnNext"/>-->
+            
+                <a id="btnNext" href="#" title="Next Month"><span>></span></a>
+            
+                <a id="btnNextYr" href="#" title="Next Year"><span>>></span></a>      
+              </div>
+            </div>
+            
+            <div id="divcalendartable"></div>
+        </div>
+        <script src="script.js"></script>
+        <script>
+          $("body").css('background', 'white');
+          $("body").css('overflow', 'scroll');
+        </script>
+    </body>
+</html>
